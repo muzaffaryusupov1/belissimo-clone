@@ -1,10 +1,11 @@
 import HeaderTop from './header-top'
+import HeaderBottom from './HeaderBottom'
 
 const Header = () => {
 	return (
-		<div>
+		<div className='container'>
 			<HeaderTop />
-			Header
+			<HeaderBottom />
 		</div>
 	)
 }

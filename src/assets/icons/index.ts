@@ -1,1 +1,4 @@
+export { default as DeliveryIcon } from './DeliveryIcon.tsx'
+export { default as LocationIcon } from './LocationIcon.tsx'
+export { default as PenIcon } from './PenIcon.tsx'
 export { default as PhoneIcon } from './PhoneIcon.tsx'
