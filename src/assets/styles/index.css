@@ -133,6 +133,14 @@
 	padding: 0 20px;
 }
 
+.main {
+	flex: 1, 1 auto;
+}
+
+button {
+	cursor: pointer;
+}
+
 .swiper {
 	width: 100%;
 	height: 100%;
@@ -154,4 +162,13 @@
 	width: 100%;
 	height: 100%;
 	object-fit: cover;
+}
+
+.my-grid {
+	display: grid;
+	grid-template-columns: repeat(3, calc(33.33% - 7px));
+}
+
+.my-scroll::-webkit-scrollbar {
+	width: 0px;
 }

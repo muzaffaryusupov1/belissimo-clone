@@ -4,12 +4,9 @@ import {
 	SelectContent,
 	SelectGroup,
 	SelectItem,
-	SelectLabel,
 	SelectTrigger,
 	SelectValue,
 } from '../ui/select'
-import RuFlagIcon from '/RuFlagIcon.svg'
-import UzFlagIcon from '/UzFlagIcon.svg'
 
 const HeaderTop = () => {
 	return (
@@ -33,18 +30,17 @@ const HeaderTop = () => {
 			</div>
 			<div>
 				<Select>
-					<SelectTrigger className='w-[180px]'>
+					<SelectTrigger className='cursor-pointer'>
 						<SelectValue placeholder='Til' />
 					</SelectTrigger>
 					<SelectContent>
 						<SelectGroup>
-							<SelectLabel>Select</SelectLabel>
-							<SelectItem value='apple'>
-								<img src={UzFlagIcon} alt='uz flag' />
-								<span>Uz</span>
+							<SelectItem value='uz' className='cursor-pointer'>
+								<img src='/UzFlagIcon.svg' alt='uz flag icon' />
+								<span>UZ</span>
 							</SelectItem>
-							<SelectItem value='apple'>
-								<img src={RuFlagIcon} alt='ru flag' />
+							<SelectItem value='ru' className='cursor-pointer'>
+								<img src='/RuFlagIcon.svg' alt='uz flag icon' />
 								<span>РУ</span>
 							</SelectItem>
 						</SelectGroup>
