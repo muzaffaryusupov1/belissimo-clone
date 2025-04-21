@@ -1,35 +1,14 @@
-import { Footer, Header } from './components'
-import {
-	ComboList,
-	DessertList,
-	DrinksList,
-	NavigationBar,
-	PitsaList,
-	SaladList,
-	SauceList,
-	SnackList,
-} from './pages/home'
-import Banner from './pages/home/banner/Banner'
-import Delivery from './pages/home/delivery/Delivery'
+import { Outlet } from 'react-router'
+import { Header } from './components'
+import { MiniModal } from './components/modals'
 
 const App = () => {
 	return (
-		<div>
+		<>
+			<MiniModal />
 			<Header />
-			<main className='main'>
-				<Banner />
-				<Delivery />
-				<NavigationBar />
-				<ComboList />
-				<PitsaList />
-				<SnackList />
-				<DrinksList />
-				<SaladList />
-				<DessertList />
-				<SauceList />
-			</main>
-			<Footer />
-		</div>
+			<Outlet />
+		</>
 	)
 }
 

@@ -1,5 +1,6 @@
 import { DeliveryIcon, LocationIcon } from '@/assets/icons'
 import { coinIcon } from '@/utils/helpers'
+import { Link } from 'react-router-dom'
 import HalalImg from '/halal-img.webp'
 import SiteLogo from '/site-logo.svg'
 
@@ -8,9 +9,9 @@ const HeaderBottom = () => {
 		<div className='py-[15px] flex items-center justify-between'>
 			<div className='flex items-center gap-5'>
 				<div className='w-[180px] h-[51px]'>
-					<a href='/'>
+					<Link to='/'>
 						<img src={SiteLogo} alt='site logo' />
-					</a>
+					</Link>
 				</div>
 				<div className='flex gap-3 items-center justify-start'>
 					<div className='flex w-11 h-11 flex-col justify-center items-center rounded-[8px] bg-[#f4f4f4]'>

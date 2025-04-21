@@ -119,11 +119,19 @@
 	}
 }
 
+html,
+body {
+	width: 100%;
+	height: 100%;
+}
+
 /* MY STYLES */
 .wrapper {
 	width: 100%;
 	height: 100%;
 	font-family: 'Inter', sans-serif;
+	display: flex;
+	flex-direction: column;
 }
 
 .container {
@@ -134,7 +142,7 @@
 }
 
 .main {
-	flex: 1, 1 auto;
+	flex: 1 1 auto;
 }
 
 button {
@@ -171,4 +179,14 @@ button {
 
 .my-scroll::-webkit-scrollbar {
 	width: 0px;
+}
+
+.gridTemplate {
+	display: grid;
+	grid-template-columns: 400px 1fr;
+}
+
+.combo-grid {
+	display: grid;
+	grid-template-columns: 50% 50%;
 }

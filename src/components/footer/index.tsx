@@ -1,4 +1,5 @@
 import { FacebookIcon } from '@/assets/icons'
+import { Link } from 'react-router-dom'
 import InstagramIcon from '/instagram-icon.svg'
 import TelegramIcon from '/telegram-icon.svg'
 
@@ -9,9 +10,9 @@ const Footer = () => {
 				<div className='pt-[52px] px-5 pb-5 grid grid-cols-5 items-start justify-between gap-2.5'>
 					<div className='mb-[30px]'>
 						<h2 className='mb-5'>
-							<a href='/'>
+							<Link to='/'>
 								<img src='/logo-footer.webp' alt='logo footer' />
-							</a>
+							</Link>
 						</h2>
 						<h4 className='text-white text-xs leading-[1.2222222222] uppercase font-normal'>
 							Raqamga qo'ng'iroq qiling - <a href='tel:1174'>1174</a>

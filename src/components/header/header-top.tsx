@@ -1,4 +1,5 @@
 import { PhoneIcon } from '@/assets/icons'
+import { Link } from 'react-router-dom'
 import {
 	Select,
 	SelectContent,
@@ -21,9 +22,9 @@ const HeaderTop = () => {
 					</span>
 					<span>1174</span>
 				</a>
-				<a href='/about/company' className='text-[#828282]'>
+				<Link to='/about' className='text-[#828282]'>
 					Biz haqimizda
-				</a>
+				</Link>
 				<a href='https://jobs.bellissimo.uz/' className='text-[#828282]'>
 					Bo'sh ish o'rinlari
 				</a>

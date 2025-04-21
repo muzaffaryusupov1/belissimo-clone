@@ -1,0 +1,5 @@
+export { default as AboutPage } from './about/AboutPage.tsx'
+export { default as CartPage } from './cart'
+export { default as ComboPage } from './combo'
+export { default as HomePage } from './home'
+export { default as NotFoundPage } from './not-found'

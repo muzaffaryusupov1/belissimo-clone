@@ -3,10 +3,12 @@ import HeaderBottom from './HeaderBottom'
 
 const Header = () => {
 	return (
-		<div className='container'>
-			<HeaderTop />
-			<HeaderBottom />
-		</div>
+		<header>
+			<div className='container'>
+				<HeaderTop />
+				<HeaderBottom />
+			</div>
+		</header>
 	)
 }
 
