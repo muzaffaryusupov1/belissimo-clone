@@ -1,3 +1,4 @@
+export { default as AboutTopIcon } from './AboutTopIcon.tsx'
 export { default as DeliveryIcon } from './DeliveryIcon.tsx'
 export { default as FacebookIcon } from './FacebookIcon.tsx'
 export { default as LocationIcon } from './LocationIcon.tsx'

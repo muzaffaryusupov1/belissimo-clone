@@ -1,30 +1,45 @@
-import { Button } from '@/components/ui/button'
-import { useNavigate } from 'react-router'
+import { useCartStore } from '@/store/cart-store'
+import { CartEmpty, CartInfo, CartItem } from './components'
 
 const CartPage = () => {
-	const navigate = useNavigate()
-
-	const navigateToHome = (): void => {
-		navigate('/')
-	}
+	const { items } = useCartStore()
 
 	return (
-		<div>
-			{/* Empty Cart Template */}
-			<div className='fixed top-[148px] left-0 bottom-0 right-0 bg-white flex flex-col items-center justify-center text-center px-[25px]'>
-				<div className='w-[210px] h-[210px]'>
-					<img src='/cart-empty.svg' alt='empty cart image' />
+		<div className='container'>
+			{items.length === 0 ? (
+				<CartEmpty />
+			) : (
+				<div className='grid grid-cols-[65%_35%] py-10 px-[25px] gap-[22px]'>
+					<div>
+						<CartItem items={items} />
+						<div>
+							<h2 className='mt-[30px] mb-2.5 font-semibold text-[19px] leading-[19px] text-black'>
+								Qo'shishni maslahat beramiz
+							</h2>
+							<div className='px-0.5 pt-2.5 pb-[13px] flex flex-row overflow-x-scroll'>
+								<div className='py-[23px] px-[45px] bg-white shadow-[5px_2px_10px_hsla(0,0%,87%,.88)] max-w-[150px] min-w-[150px] rounded-[14px] mr-2.5 flex flex-col items-center justify-center gap-2 cursor-pointer'>
+									<div className='w-[120px] h-[71px] rounded-[10px] mr-2.5 flex items-center justify-center'>
+										<img
+											src='/snack-list/snack-img1.webp'
+											alt='recommendation image'
+											className='w-full h-full object-contain'
+										/>
+									</div>
+									<div>
+										<p className='font-bold text-lg leading-3.5 text-[#1b1b1b] mb-1 text-center'>
+											"Po-derevenski" kartoshkasi
+										</p>
+										<p className='font-normal text-[15px] leading-[17px] text-center text-[#8d8d8d]'>
+											19 000 so'm
+										</p>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<CartInfo />
 				</div>
-				<h3 className='mt-[50px] mb-5 font-bold text-[calc(27px-3px)] leading-[29px] text-center text-black'>
-					Hozircha sizning savatchangiz boʻsh 😕
-				</h3>
-				<Button
-					className='border-none rounded-[60px] text-center text-white font-bold py-[15px] px-[25px] w-[calc(100%-50px)] my-8 mx-[25px] max-w-[400px]'
-					onClick={navigateToHome}
-				>
-					Menyuni ko'rish
-				</Button>
-			</div>
+			)}
 		</div>
 	)
 }

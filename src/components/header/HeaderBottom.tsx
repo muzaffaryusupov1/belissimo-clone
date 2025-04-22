@@ -1,6 +1,7 @@
 import { DeliveryIcon, LocationIcon } from '@/assets/icons'
 import { coinIcon } from '@/utils/helpers'
 import { Link } from 'react-router-dom'
+import { toast } from 'sonner'
 import HalalImg from '/halal-img.webp'
 import SiteLogo from '/site-logo.svg'
 
@@ -48,7 +49,20 @@ const HeaderBottom = () => {
 						</div>
 						0
 					</div>
-					<button className='bg-[#006f4c] text-white border-none rounded-[60px] text-center font-bold text-base py-[15px] px-[25px] cursor-pointer block max-w-[400px] transition duration-200 ease-in hover:bg-[#009163]'>
+					<button
+						className='bg-[#006f4c] text-white border-none rounded-[60px] text-center font-bold text-base py-[15px] px-[25px] cursor-pointer block max-w-[400px] transition duration-200 ease-in hover:bg-[#009163]'
+						onClick={() =>
+							toast('Event has been created', {
+								position: 'top-right',
+								richColors: true,
+								description: 'Sunday, December 03, 2023 at 9:00 AM',
+								action: {
+									label: 'Undo',
+									onClick: () => console.log('Undo'),
+								},
+							})
+						}
+					>
 						Kirish
 					</button>
 				</div>

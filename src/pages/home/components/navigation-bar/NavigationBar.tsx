@@ -1,5 +1,6 @@
 import { Button } from '@/components/ui/button'
-import { navTab } from '@/utils/helpers'
+import { useCartStore } from '@/store/cart-store'
+import { useNavigationStore } from '@/store/navigation-store'
 import { useEffect, useRef, useState } from 'react'
 import { useNavigate } from 'react-router'
 
@@ -7,6 +8,8 @@ const NavigationBar = () => {
 	const navbarRef = useRef<HTMLDivElement | null>(null)
 	const [isSticky, setIsSticky] = useState(false)
 	const navigate = useNavigate()
+	const { items } = useCartStore()
+	const { navs, getNavigationItems } = useNavigationStore()
 
 	useEffect(() => {
 		const handleScroll = () => {
@@ -22,6 +25,10 @@ const NavigationBar = () => {
 			window.removeEventListener('scroll', handleScroll)
 		}
 	}, [])
+
+	useEffect(() => {
+		getNavigationItems()
+	}, [getNavigationItems])
 
 	const scrollToId = (id: string) => {
 		const el = document.getElementById(id)
@@ -53,7 +60,7 @@ const NavigationBar = () => {
 								<img src='/icon.webp' alt='site icon' />
 							</div>
 						</div>
-						{navTab.map(item => {
+						{navs?.map(item => {
 							return (
 								<Button
 									key={item.id}
@@ -75,7 +82,7 @@ const NavigationBar = () => {
 						>
 							<span>Savatcha</span>
 							<span className='border border-solid border-white h-full'></span>
-							<span>0</span>
+							<span>{items.length}</span>
 						</Button>
 					</div>
 				</div>
