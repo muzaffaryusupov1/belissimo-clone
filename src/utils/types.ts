@@ -32,6 +32,7 @@ export interface ICombo {
 	discount: number
 	slug: string
 	image: string
+	constructor: IConstructor[] | null
 }
 
 export interface ICart extends ICombo {
@@ -59,4 +60,15 @@ export interface IPitsa {
 	description: string
 	price: number
 	image: string
+}
+
+export interface IConstructor {
+	id: number
+	title: string
+	price: number
+	image: string
+}
+
+export interface IConstructorObj extends ICart {
+	constructors: IConstructor[]
 }

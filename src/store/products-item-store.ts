@@ -1,26 +1,26 @@
-import PitsaService from '@/service/pitsa'
+import ProductsService from '@/service/products'
 import { ICart } from '@/utils/types'
 import { create } from 'zustand'
 
-interface PitsaItemState {
-	pitsaItem: ICart | null
+interface ProductsItemState {
+	productsItem: ICart | null
 	loading: boolean
 	error: string | null
-	getPitsaItem: (id: number) => Promise<void>
+	getProductsItem: (id: number) => Promise<void>
 }
 
-export const usePitsaItemStore = create<PitsaItemState>(set => ({
-	pitsaItem: null,
+export const useProductsItemStore = create<ProductsItemState>(set => ({
+	productsItem: null,
 	loading: false,
 	error: null,
 
-	getPitsaItem: async (id: number) => {
-		set({ loading: true, error: null, pitsaItem: null })
+	getProductsItem: async (id: number) => {
+		set({ loading: true, error: null, productsItem: null })
 		try {
-			const response = await PitsaService.pitsaItem(id)
+			const response = await ProductsService.getProductsItem(id)
 			const foundItem = response.data.find((item: ICart) => item.id === id)
 			if (foundItem) {
-				set({ pitsaItem: foundItem, loading: false })
+				set({ productsItem: foundItem, loading: false })
 			} else {
 				set({ error: 'Item not found', loading: false })
 			}

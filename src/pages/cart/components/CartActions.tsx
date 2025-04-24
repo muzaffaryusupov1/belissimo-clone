@@ -4,6 +4,7 @@ import { MinusIcon, PlusIcon } from 'lucide-react'
 
 const CartActions = (props: { id: number; quantity: number }) => {
 	const { increaseQty, decreaseQty } = useCartStore()
+
 	return (
 		<div className='flex flex-row items-center justify-between gap-1.5 rounded-[10px] bg-[#efefef] w-max mb-2 ml-2'>
 			<Button

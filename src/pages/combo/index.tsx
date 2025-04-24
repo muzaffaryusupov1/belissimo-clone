@@ -25,7 +25,7 @@ const ComboPage = () => {
 	if (loading) return <LoaderPage />
 
 	const addCart = (item: ICombo) => {
-		addToCart({ ...item, quantity: 1 })
+		addToCart({ ...item, quantity: 1, constructor: [] })
 		toast(`${item.title} savatga qo'shildi`, {
 			position: 'top-right',
 			richColors: true,

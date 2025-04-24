@@ -225,3 +225,7 @@ button {
 .about-misson__bg {
 	background: linear-gradient(0deg, #bf2e2b, #bf2e2b), #d3d3d3 50% / cover no-repeat;
 }
+
+.constructor-img__bg {
+	background: linear-gradient(90.25deg, #ac000c, 0.26% #cf000e 102.27%);
+}

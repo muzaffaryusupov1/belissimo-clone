@@ -1,3 +1,4 @@
+import { toast } from 'sonner'
 import { INav } from './types'
 
 export const coinIcon: string =
@@ -62,4 +63,12 @@ export const sliderResponsive = {
 		breakpoint: { max: 464, min: 0 },
 		items: 1,
 	},
+}
+
+export const toaster = (itemTitle: string = '', desc: string) => {
+	toast(`${itemTitle} ${desc}`, {
+		position: 'top-right',
+		richColors: true,
+		closeButton: true,
+	})
 }

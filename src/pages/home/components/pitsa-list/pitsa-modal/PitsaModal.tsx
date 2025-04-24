@@ -7,8 +7,11 @@ import {
 	DialogHeader,
 	DialogTitle,
 } from '@/components/ui/dialog'
+import { useCartStore } from '@/store/cart-store'
 import { usePitsaItemStore } from '@/store/pitsa-item-store'
 import { usePitsaModalStore } from '@/store/pitsa-modal'
+import { toaster } from '@/utils/helpers'
+import { ICart } from '@/utils/types'
 import { useEffect } from 'react'
 import PitsaModalCard from './PitsaModalCard'
 import PitsaModalTabs from './PitsaModalTabs'
@@ -16,12 +19,19 @@ import PitsaModalTabs from './PitsaModalTabs'
 const PitsaModal = () => {
 	const { pitsaModal, pitsaModalClose, activeId } = usePitsaModalStore()
 	const { getPitsaItem, pitsaItem } = usePitsaItemStore()
+	const { addToCart } = useCartStore()
 
 	useEffect(() => {
 		if (activeId !== null) {
 			getPitsaItem(activeId)
 		}
 	}, [getPitsaItem, activeId])
+
+	const addCart = (item: ICart) => {
+		addToCart({ ...item, constructor: [] })
+		toaster(item.title, "savatga qo'shildi")
+		pitsaModalClose()
+	}
 
 	if (!activeId) return
 
@@ -75,19 +85,16 @@ const PitsaModal = () => {
 							</div>
 							<div className='h-max my-grid gap-2.5 max-w-full py-3 px-0.5 pb-24'>
 								<PitsaModalCard />
-								<PitsaModalCard />
-								<PitsaModalCard />
-								<PitsaModalCard />
-								<PitsaModalCard />
-								<PitsaModalCard />
-								<PitsaModalCard />
 							</div>
 						</div>
 					</div>
 					<div className='fixed bottom-5 right-0 w-[50%] z-20 px-6 bg-white'>
 						<div className='sticky p-0 z-[111111] flex flex-col items-start left-0 right-0 bottom-0 rounded-bl-[20px] rounded-br-[20px]'>
 							<div className='w-full'>
-								<Button className='mt-5 w-full mt-20px max-w-none bg-[#006f4c] text-white border-none rounded-[60px] text-center font-bold text-base p-[25px] cursor-pointer flex duration-200 ease-in-out hover:bg-[#009163]'>
+								<Button
+									className='mt-5 w-full mt-20px max-w-none bg-[#006f4c] text-white border-none rounded-[60px] text-center font-bold text-base p-[25px] cursor-pointer  duration-200 ease-in-out hover:bg-[#009163]'
+									onClick={() => addCart(pitsaItem!)}
+								>
 									Savatga qo'shish
 								</Button>
 							</div>

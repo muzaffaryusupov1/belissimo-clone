@@ -1,5 +1,5 @@
 import App from '@/App'
-import { AboutPage, CartPage, ComboPage, HomePage, NotFoundPage } from '@/pages'
+import { AboutPage, CartPage, ComboPage, ConstuctorPage, HomePage, NotFoundPage } from '@/pages'
 import { createBrowserRouter } from 'react-router-dom'
 
 export const router = createBrowserRouter([
@@ -12,6 +12,7 @@ export const router = createBrowserRouter([
 			{ path: '*', element: <NotFoundPage /> },
 			{ path: '/cart', element: <CartPage /> },
 			{ path: '/combo/:slug', element: <ComboPage /> },
+			{ path: '/constructor', element: <ConstuctorPage /> },
 		],
 	},
 ])
