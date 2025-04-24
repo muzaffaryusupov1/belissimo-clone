@@ -1,0 +1,7 @@
+export { default as AboutDigital } from './AboutDigital.tsx'
+export { default as AboutGuest } from './AboutGuest.tsx'
+export { default as AboutImagine } from './AboutImagine.tsx'
+export { default as AboutMisson } from './AboutMisson.tsx'
+export { default as AboutQuality } from './AboutQuality.tsx'
+export { default as AboutTeam } from './AboutTeam.tsx'
+export { default as AboutTop } from './AboutTop.tsx'

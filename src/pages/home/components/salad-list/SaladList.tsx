@@ -15,7 +15,7 @@ const SaladList = () => {
 			<div className='container'>
 				<div className='pt-2.5'>
 					<h2 className='font-bold text-[20px] leading-[17px] text-black my-5'>Salatlar</h2>
-					<div className='grid grid-cols-4 gap-[15px]'>
+					<div className='grid grid-cols-4 gap-[15px] max-lg:grid-cols-2 max-[500px]:grid-cols-1 max-md:gap-2'>
 						{product.map(item => (
 							<SaladCard items={item} key={item.id} />
 						))}

@@ -12,11 +12,7 @@ const NotFoundPage = () => {
 			<div className='flex flex-row items-center justify-center mb-8'>
 				<p className='text-[80px] font-black mx-[.8rem]'>4</p>
 				<div className='w-[100px] h-[100px]'>
-					<img
-						src='/public/pizza404.webp'
-						alt='404 image'
-						className='w-full h-full object-contain'
-					/>
+					<img src='/pizza404.webp' alt='404 image' className='w-full h-full object-contain' />
 				</div>
 				<p className='text-[80px] font-black mx-[.8rem]'>4</p>
 			</div>

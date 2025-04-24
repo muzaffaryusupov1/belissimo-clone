@@ -26,7 +26,7 @@ const Banner = () => {
 					swipeable={true}
 					minimumTouchDrag={50}
 					showDots={true}
-					className='rounded-lg'
+					className='rounded-lg max-md:h-full'
 				>
 					{banner.map(item => (
 						<BannerItem key={item.id} id={item.id} image={item.image} />

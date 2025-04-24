@@ -7,14 +7,14 @@ const Footer = () => {
 	return (
 		<footer className='bg-[#262a2c] mt-14'>
 			<div className='container'>
-				<div className='pt-[52px] px-5 pb-5 grid grid-cols-5 items-start justify-between gap-2.5'>
+				<div className='pt-[52px] px-5 pb-5 grid grid-cols-5 items-start justify-between gap-2.5 max-lg:grid-cols-3 max-md:flex max-md:flex-col max-md:items-start'>
 					<div className='mb-[30px]'>
-						<h2 className='mb-5'>
+						<h2 className='mb-5 max-md:w-[300px] max-sm:w-[240px]'>
 							<Link to='/'>
 								<img src='/logo-footer.webp' alt='logo footer' />
 							</Link>
 						</h2>
-						<h4 className='text-white text-xs leading-[1.2222222222] uppercase font-normal'>
+						<h4 className='text-white text-xs leading-[1.2222222222] uppercase font-normal max-md:text-lg max-sm:text-base'>
 							Raqamga qo'ng'iroq qiling - <a href='tel:1174'>1174</a>
 						</h4>
 					</div>
@@ -90,14 +90,18 @@ const Footer = () => {
 							</li>
 						</ul>
 					</div>
-					<ul className='flex w-full gap-y-[18px] gap-x-[30px] flex-wrap justify-center my-0 mx-auto'>
-						<li className='flex items-center justify-center basis-[calc(50%-15px)]'>
-							<img src='/payme-icon.svg' alt='payme icon' />
+					<ul className='flex w-full gap-y-[18px] gap-x-[30px] flex-wrap justify-center my-0 mx-auto max-md:flex max-md:w-full max-md:flex-wrap'>
+						<li className='flex items-center justify-center max-md:w-[90px] max-md:h-[90px]'>
+							<img
+								src='/payme-icon.svg'
+								alt='payme icon'
+								className='object-contain w-full h-full'
+							/>
 						</li>
-						<li className='flex items-center justify-center basis-[calc(50%-15px)]'>
+						<li className='flex items-center justify-center max-md:w-[90px] max-md:h-[90px]'>
 							<img src='/uzcard-icon.svg' alt='uzcard icon' />
 						</li>
-						<li className='flex items-center justify-center basis-[calc(50%-15px)]'>
+						<li className='flex items-center justify-center max-md:w-[90px] max-md:h-[90px]'>
 							<img src='/click-icon.svg' alt='click icon' />
 						</li>
 					</ul>

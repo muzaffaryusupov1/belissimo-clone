@@ -1,3 +1,4 @@
+import { Button } from '@/components/ui/button'
 import { useCartStore } from '@/store/cart-store'
 import { toaster } from '@/utils/helpers'
 import { ICombo, IConstructor } from '@/utils/types'
@@ -19,7 +20,7 @@ const ConstructorInfo = (props: { cards: IConstructor[] }) => {
 			showOldPrice: false,
 			slug: '',
 			title: 'kichkina',
-			image: '/public/constructor/constructor-card-img.webp',
+			image: '/constructor/constructor-card-img.webp',
 			price: subtotal,
 			constructor: [...cards],
 		}
@@ -55,12 +56,13 @@ const ConstructorInfo = (props: { cards: IConstructor[] }) => {
 					</div>
 					<div className='grid grid-cols-[40%_60%] items-center py-[15px] px-[25px] bg-white'>
 						<p className='font-bold text-xl leading-[19px]'>{subtotal.toLocaleString()} so'm</p>
-						<button
+						<Button
 							className='w-full m-0 text-base disabled:bg-[#d4d4d4] text-white bg-[#006f4c] border-none rounded-[60px] text-center font-bold py-[15px] px-[25px] cursor-pointer disabled:cursor-not-allowed duration-200 ease-in-out hover:bg-[#009163]'
 							onClick={addCart}
+							disabled={!cards.length}
 						>
 							Savatga qo'shish
-						</button>
+						</Button>
 					</div>
 				</div>
 			</div>

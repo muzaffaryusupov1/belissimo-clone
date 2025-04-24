@@ -3,7 +3,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
 
 const Delivery = () => {
 	return (
-		<div className='mb-[25px]'>
+		<div className='mb-[25px] max-sm:hidden'>
 			<div className='container'>
 				<Tabs
 					defaultValue='delivery'

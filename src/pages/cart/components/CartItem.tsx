@@ -7,8 +7,6 @@ import CartActions from './CartActions'
 const CartItem = (props: { items: ICart[] }) => {
 	const { removeFromCart, clearCart } = useCartStore()
 
-	console.log(props.items)
-
 	return (
 		<div className='divide-y divide-gray-200 rounded-2xl shadow-[0px_3px_15px_hsla(0,0%,85%,.3)]'>
 			{props.items.map(item => (

@@ -16,7 +16,7 @@ const SnackList = () => {
 			<div className='container'>
 				<div className='pt-2.5'>
 					<h2 className='font-bold text-xl leading-[17px] text-black mb-[15px] mt-5'>Gazaklar</h2>
-					<div className='grid grid-cols-4 gap-[15px]'>
+					<div className='grid grid-cols-4 gap-[15px] max-lg:grid-cols-2 max-md:gap-2'>
 						{product.map(item => (
 							<SnackCard items={item} key={item.id} />
 						))}

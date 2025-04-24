@@ -26,7 +26,7 @@ const CartInfo = () => {
 					<div className='flex flex-row items-center justify-between'>
 						<p className='font-semibold text-xl leading-[23px] text-black'>Umumiy narx</p>
 						<p className='font-semibold text-xl leading-[23px] text-black text-right'>
-							{subtotal.toLocaleString()}
+							{subtotal.toLocaleString()} so'm
 						</p>
 					</div>
 				</div>

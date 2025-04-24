@@ -43,9 +43,11 @@ const ComboPage = () => {
 					<div className='rounded-[28px] overflow-hidden'>
 						<img src={comboItem?.image} alt={comboItem?.title} />
 					</div>
-					<div className='p-[25px]'>
-						<h1 className='font-bold text-[27px] leading-[19px] text-black'>{comboItem?.title}</h1>
-						<p className='mt-[15px] font-normal text-[15px] leading-[18px] text-black'>
+					<div className='p-[25px] max-md:py-3 max-md:px-2'>
+						<h1 className='font-bold text-[27px] leading-[19px] text-black max-sm:text-lg'>
+							{comboItem?.title}
+						</h1>
+						<p className='mt-[15px] font-normal text-[15px] leading-[18px] text-black max-md:mt-1.5 max-sm:text-xs'>
 							{comboItem?.description}
 						</p>
 					</div>
@@ -53,7 +55,7 @@ const ComboPage = () => {
 				<div>
 					<div className='mb-[50px!important] cursor-pointer'>
 						<div className='flex flex-col gap-1.5'>
-							<div className='flex flex-row items-center justify-between py-[15px] pr-[15px] pl-5 shadow-[5px_2px_40px_hsla(257,8%,83%,.25)] m-[5px] mx-[25px] duration-100 ease-in bg-white hover:scale-[1.03] hover:shadow-[5px_2px_40px_hsla[257,8%,83%,.25]]'>
+							<div className='flex flex-row items-center justify-between py-[15px] pr-[15px] pl-5 shadow-[5px_2px_40px_hsla(257,8%,83%,.25)] m-[5px] mx-[25px] duration-100 ease-in bg-white hover:scale-[1.03] hover:shadow-[5px_2px_40px_hsla[257,8%,83%,.25]] max-md:mx-0 max-sm:py-2 max-sm:pr-2 max-sm:pl-3'>
 								<div className='flex flex-col'>
 									<h3 className='font-normal text-[15px] leading-[17px] text-black opacity-70'>
 										Пицца
@@ -64,7 +66,7 @@ const ComboPage = () => {
 								</div>
 								<ChevronRight />
 							</div>
-							<div className='flex flex-row items-center justify-between py-[15px] pr-[15px] pl-5 shadow-[5px_2px_40px_hsla(257,8%,83%,.25)] m-[5px] mx-[25px] duration-100 ease-in bg-white hover:scale-[1.03] hover:shadow-[5px_2px_40px_hsla[257,8%,83%,.25]]'>
+							<div className='flex flex-row items-center justify-between py-[15px] pr-[15px] pl-5 shadow-[5px_2px_40px_hsla(257,8%,83%,.25)] m-[5px] mx-[25px] duration-100 ease-in bg-white hover:scale-[1.03] hover:shadow-[5px_2px_40px_hsla[257,8%,83%,.25]] max-md:mx-0 max-sm:py-2 max-sm:pr-2 max-sm:pl-3'>
 								<div className='flex flex-col'>
 									<h3 className='font-normal text-[15px] leading-[17px] text-black opacity-70'>
 										Стрипсы
@@ -75,7 +77,7 @@ const ComboPage = () => {
 								</div>
 								<ChevronRight />
 							</div>
-							<div className='flex flex-row items-center justify-between py-[15px] pr-[15px] pl-5 shadow-[5px_2px_40px_hsla(257,8%,83%,.25)] m-[5px] mx-[25px] duration-100 ease-in bg-white hover:scale-[1.03] hover:shadow-[5px_2px_40px_hsla[257,8%,83%,.25]]'>
+							<div className='flex flex-row items-center justify-between py-[15px] pr-[15px] pl-5 shadow-[5px_2px_40px_hsla(257,8%,83%,.25)] m-[5px] mx-[25px] duration-100 ease-in bg-white hover:scale-[1.03] hover:shadow-[5px_2px_40px_hsla[257,8%,83%,.25]] max-md:mx-0 max-sm:py-2 max-sm:pr-2 max-sm:pl-3'>
 								<div className='flex flex-col'>
 									<h3 className='font-normal text-[15px] leading-[17px] text-black opacity-70'>
 										Картошка фри
@@ -88,38 +90,31 @@ const ComboPage = () => {
 							</div>
 						</div>
 					</div>
-					<div className='flex flex-col items-center justify-center gap-6 p-0 mb-[30px]'>
-						<div className='w-full flex flex-row justify-between items-end gap-2.5'>
-							<p className='font-bold text-[calc(19px-1px)] leading-[23px] text-black'>
+					<div className='flex flex-col items-center justify-center gap-6 p-0 mb-[30px] max-md:mb-5 max-sm:mb-3'>
+						<div className='w-full flex flex-row justify-between items-end gap-2.5 max-sm:gap-1.5'>
+							<p className='font-bold text-[calc(19px-1px)] leading-[23px] text-black max-sm:text-base'>
 								Umumiy narx:
 							</p>
-							<div className='flex flex-col items-end gap-[5px]'>
-								<div className='relative text-[#8d8d8d] font-normal'>
+							<div className='flex flex-col items-end gap-[5px] max-sm:gap-0.5'>
+								<div className='relative text-[#8d8d8d] font-normal max-sm:text-xs'>
 									<div className='absolute w-full'>
 										<img src={saleLine} alt='stroke' className='w-full' />
 									</div>
 									<p>{comboItem?.oldPrice?.toLocaleString()} so'm</p>
 								</div>
-								<p className='font-extrabold text-[calc(19px+3px)] leading-[19px] text-right text-black'>
+								<p className='font-extrabold text-[calc(19px+3px)] leading-[19px] text-right text-black max-sm:text-base'>
 									{comboItem?.price?.toLocaleString()} so'm
 								</p>
 							</div>
 						</div>
-						{comboItem ? (
-							<Button
-								className='bg-[#006f4c] text-white border-none rounded-[60px] text-center font-bold text-base py-[15px] px-[25px] my-[1em] mx-[25px] w-full duration-200 ease-in-out hover:bg-[#009163]'
-								onClick={() => addCart(comboItem)}
-							>
-								Savatga qo'shish
-							</Button>
-						) : (
-							<Button
-								className='bg-[#006f4c] text-white border-none rounded-[60px] text-center font-bold text-base py-[15px] px-[25px] my-[1em] mx-[25px] w-full duration-200 ease-in-out hover:bg-[#009163]'
-								disabled
-							>
-								Savatga qo'shish
-							</Button>
-						)}
+
+						<Button
+							className='bg-[#006f4c] text-white border-none rounded-[60px] text-center font-bold text-base py-[15px] px-[25px] my-[1em] mx-[25px] w-full duration-200 ease-in-out hover:bg-[#009163]'
+							onClick={() => addCart(comboItem!)}
+							disabled={comboItem === null}
+						>
+							Savatga qo'shish
+						</Button>
 					</div>
 				</div>
 			</div>

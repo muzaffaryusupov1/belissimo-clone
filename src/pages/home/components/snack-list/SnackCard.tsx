@@ -15,12 +15,14 @@ const SnackCard = (props: { items: ICart }) => {
 				<div className='w-full relative mb-[5px] rounded-3xl overflow-hidden'>
 					<img src={items.image} alt={`snack-img${items.id} `} />
 				</div>
-				<p className='font-normal text-[15px] leading-[19px] text-black mb-1.5'>{items.title}</p>
-				<p className='font-normal text-[13px] leading-3.5 text-[#828282] mb-2.5'>
+				<p className='font-normal text-[15px] leading-[19px] text-black mb-1.5 max-sm:text-[13px]'>
+					{items.title}
+				</p>
+				<p className='font-normal text-[13px] leading-3.5 text-[#828282] mb-2.5 max-sm:text-[11px]'>
 					{items.description}
 				</p>
 			</div>
-			<div className='relative flex flex-row items-center justify-between w-max text-sm font-bold leading-[13px] bg-[#ebebeb] rounded-[100px] py-[7px] px-3.5 h-7 my-0 mr-auto ml-0'>
+			<div className='relative flex flex-row items-center justify-between w-max text-sm font-bold leading-[13px] bg-[#ebebeb] rounded-[100px] py-[7px] px-3.5 h-7 my-0 mr-auto ml-0 max-sm:py-1 max-sm:px-2 max-sm:h-4 max-sm:text-[11px]'>
 				<p>{items.price?.toLocaleString()} so'm</p>
 			</div>
 		</div>

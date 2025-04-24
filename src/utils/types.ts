@@ -72,3 +72,11 @@ export interface IConstructor {
 export interface IConstructorObj extends ICart {
 	constructors: IConstructor[]
 }
+
+export interface IStatistic {
+	id: number
+	title: string
+	description: string
+	year: number
+	image: string
+}

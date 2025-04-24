@@ -7,30 +7,49 @@ import {
 	DialogHeader,
 	DialogTitle,
 } from '@/components/ui/dialog'
+import ConstructorCardItem from '@/pages/constructor/components/ConstructorCardItem'
 import { useCartStore } from '@/store/cart-store'
+import { useConstructorStore } from '@/store/constructor-store'
 import { usePitsaItemStore } from '@/store/pitsa-item-store'
 import { usePitsaModalStore } from '@/store/pitsa-modal'
 import { toaster } from '@/utils/helpers'
-import { ICart } from '@/utils/types'
-import { useEffect } from 'react'
-import PitsaModalCard from './PitsaModalCard'
-import PitsaModalTabs from './PitsaModalTabs'
+import { ICart, IConstructor } from '@/utils/types'
+import { ArchiveX } from 'lucide-react'
+import { useEffect, useState } from 'react'
+import { toast } from 'sonner'
 
 const PitsaModal = () => {
 	const { pitsaModal, pitsaModalClose, activeId } = usePitsaModalStore()
 	const { getPitsaItem, pitsaItem } = usePitsaItemStore()
 	const { addToCart } = useCartStore()
+	const { constructors, getConstructors } = useConstructorStore()
+	const [cards, setCards] = useState<IConstructor[]>([])
+	const subtotal = cards.reduce((a, b) => a! + b.price, pitsaItem?.price)
 
 	useEffect(() => {
 		if (activeId !== null) {
 			getPitsaItem(activeId)
 		}
-	}, [getPitsaItem, activeId])
+		getConstructors()
+	}, [getPitsaItem, activeId, getConstructors])
 
 	const addCart = (item: ICart) => {
-		addToCart({ ...item, constructor: [] })
+		addToCart({ ...item, constructor: [...cards], price: subtotal as number })
 		toaster(item.title, "savatga qo'shildi")
 		pitsaModalClose()
+	}
+
+	const handleClick = (id: IConstructor) => {
+		if (cards.length >= 10) {
+			setCards(prev => prev.filter(i => i !== id))
+			toast("Faqat 10 ta masalliq qo'sha olasiz", {
+				icon: <ArchiveX />,
+				position: 'top-right',
+				richColors: true,
+			})
+		} else {
+			setCards(prev => (prev.includes(id) ? prev.filter(i => i !== id) : [...prev, id]))
+		}
 	}
 
 	if (!activeId) return
@@ -53,18 +72,24 @@ const PitsaModal = () => {
 						</DialogDescription>
 						<hr className='h-3' />
 						<div className='h-[100px]'>
-							<div className='flex items-start mb-[15px] leading-[18px] text-[#828282]'>
+							<div className='flex items-start flex-wrap mb-[15px] leading-[18px] text-[#828282]'>
 								<h4 className='text-[#323232] font-semibold mr-1.5'>Tanlangan bort:</h4>
-								<p>Oddiy bort</p>
+								<p>Mavjud emas</p>
 							</div>
-							<div className='flex items-start mb-[15px] leading-[18px] text-[#828282]'>
-								<h4 className='text-[#323232] font-semibold mr-1.5'>Masalliqlar:</h4>
-								<p>Tanlanmagan</p>
+							<div>
+								<div className='flex items-start flex-wrap mb-[15px] leading-[18px] text-[#828282]'>
+									<h4 className='text-[#323232] font-semibold mr-1.5'>Masalliqlar:</h4>
+									{cards.length !== 0 ? (
+										cards.map(i => <p key={i.id}>{`${i.title}, `}</p>)
+									) : (
+										<p>Tanlanmagan</p>
+									)}
+								</div>
 							</div>
 						</div>
 						<div className='flex flex-row items-center justify-between'>
 							<p className='text-2xl text-[#262a2c] font-semibold'>
-								{pitsaItem?.price?.toLocaleString()} so'm
+								{subtotal?.toLocaleString()} so'm
 							</p>
 							<div></div>
 						</div>
@@ -72,19 +97,22 @@ const PitsaModal = () => {
 				</div>
 				<div className='h-full w-full min-h-[470px] overflow-x-hidden my-scroll'>
 					<div className='max-h-[475px]'>
-						<DialogHeader className='mb-4 text-lg font-bold'>Pitsa kattaligi</DialogHeader>
+						<h1 className='mb-4 text-lg font-normal'>
+							Pitsa kattaligi:
+							<span className='font-bold'> Kickkina</span>
+						</h1>
 
-						<PitsaModalTabs />
-
-						<div className='w-full bg-white mt-5'>
+						<div className='w-full bg-white'>
 							<div className='flex flex-row items-center justify-between'>
-								<h3 className='text-lg font-bold text-black'>Masalliqlarni tanlang</h3>
+								<DialogHeader className='text-lg font-bold text-black'>
+									Masalliqlarni tanlang
+								</DialogHeader>
 								<Badge className='bg-[#ffc600] rounded-[100px] py-2 px-[15px] font-semibold text-sm text-black'>
-									0 / 15
+									{cards.length} / 10
 								</Badge>
 							</div>
 							<div className='h-max my-grid gap-2.5 max-w-full py-3 px-0.5 pb-24'>
-								<PitsaModalCard />
+								<ConstructorCardItem handleClick={handleClick} cards={cards} items={constructors} />
 							</div>
 						</div>
 					</div>
