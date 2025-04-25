@@ -1,8 +1,9 @@
 import { DeliveryIcon, LocationIcon } from '@/assets/icons'
+import { useCartStore } from '@/store/cart-store'
+import { useModalStore } from '@/store/modal-store'
 import { coinIcon } from '@/utils/helpers'
-import { ShoppingCart } from 'lucide-react'
+import { ShoppingCart, Text } from 'lucide-react'
 import { Link, useNavigate } from 'react-router-dom'
-import MobileSheet from '../modals/mobile-sheet'
 import { Badge } from '../ui/badge'
 import { Button } from '../ui/button'
 import HalalImg from '/halal-img.webp'
@@ -10,6 +11,8 @@ import SiteLogo from '/site-logo.svg'
 
 const HeaderBottom = () => {
 	const navigate = useNavigate()
+	const { open } = useModalStore()
+	const { items } = useCartStore()
 
 	return (
 		<div className='container'>
@@ -32,7 +35,9 @@ const HeaderBottom = () => {
 						</div>
 					</div>
 					<div className='hidden max-md:block'>
-						<MobileSheet />
+						<Button variant='ghost' onClick={() => open()}>
+							<Text />
+						</Button>
 					</div>
 					<div className='w-full min-w-[210px] h-12 flex items-center rounded-sm py-[13px] px-[15px] max-w-[200px] max-[850px]:hidden'>
 						<div className='flex w-24 h-11 flex-col justify-center items-center rounded-[8px] bg-[#f4f4f4]'>
@@ -65,10 +70,14 @@ const HeaderBottom = () => {
 							Kirish
 						</Button>
 					</div>
-					<Button className='relative max-md:block hidden' variant={'ghost'}>
+					<Button
+						className='relative max-md:block hidden'
+						variant={'ghost'}
+						onClick={() => navigate('/cart')}
+					>
 						<ShoppingCart />
 						<Badge className='absolute -top-0.5 left-6 bg-[#ff002b] h-[15px] w-[15px] rounden-[50%] flex items-center justify-center text-white text-[11px]'>
-							1
+							{items.length}
 						</Badge>
 					</Button>
 				</div>

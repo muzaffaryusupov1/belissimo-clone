@@ -179,6 +179,12 @@ button {
 	grid-template-columns: repeat(3, calc(33.33% - 7px));
 }
 
+@media (width < 1024px) {
+	.my-grid {
+		grid-template-columns: repeat(2, 1fr);
+	}
+}
+
 .my-scroll::-webkit-scrollbar {
 	width: 0px;
 }
@@ -186,6 +192,19 @@ button {
 .gridTemplate {
 	display: grid;
 	grid-template-columns: 400px 1fr;
+}
+
+@media (width < 768px) {
+	.gridTemplate {
+		grid-template-columns: 300px 1fr;
+	}
+}
+
+@media (width < 640px) {
+	.gridTemplate {
+		display: flex;
+		flex-direction: column;
+	}
 }
 
 .combo-grid {
@@ -243,6 +262,16 @@ button {
 	grid-template-rows: repeat(2, 1fr);
 	grid-column-gap: 20px;
 	grid-row-gap: 20px;
+}
+
+@media (width < 1024px) {
+	.about-imagine__wrapper {
+		display: flex;
+		flex-wrap: wrap;
+		margin-top: 10px;
+		align-items: center;
+		justify-content: center;
+	}
 }
 
 .about-grid-area-1 {

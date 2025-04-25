@@ -11,7 +11,7 @@ const CartItem = (props: { items: ICart[] }) => {
 		<div className='divide-y divide-gray-200 rounded-2xl shadow-[0px_3px_15px_hsla(0,0%,85%,.3)]'>
 			{props.items.map(item => (
 				<div
-					className='flex flex-row items-center gap-[7px] justify-between py-[15px] px-[25px] relative'
+					className='flex flex-row items-center gap-[7px] justify-between py-[15px] px-[25px] relative max-md:px-2.5 max-sm:px-1'
 					key={item.id}
 				>
 					<div className='flex flex-row items-center justify-start'>
@@ -23,9 +23,11 @@ const CartItem = (props: { items: ICart[] }) => {
 							/>
 						</div>
 						<div>
-							<h3 className='font-normal text-[15px] leading-[19px]'>{item.title}</h3>
+							<h3 className='font-normal text-[15px] leading-[19px] max-sm:text-sm'>
+								{item.title}
+							</h3>
 							{item.constructor?.length !== 0 ? (
-								<p className='text-[13px] mt-[5px] text-[#828282]'>
+								<p className='text-[13px] mt-[5px] text-[#828282] max-sm:text-xs'>
 									+{' '}
 									{item.constructor?.map(i => (
 										<span key={i.id}>{`${i.title}, `}</span>

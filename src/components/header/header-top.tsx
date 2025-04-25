@@ -1,7 +1,7 @@
 import { PhoneIcon } from '@/assets/icons'
 import { coinIcon } from '@/utils/helpers'
 import { UserRound } from 'lucide-react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { Button } from '../ui/button'
 import {
 	Select,
@@ -13,10 +13,12 @@ import {
 } from '../ui/select'
 
 const HeaderTop = () => {
+	const navigate = useNavigate()
+
 	return (
 		<div className='max-md:bg-[#006f4c]'>
 			<div className='container'>
-				<div className='border-b border-[#f4f4f4] py-[15px] flex flex-row items-center justify-between max-md:py-2.5 '>
+				<div className='border-b border-[#f4f4f4] py-[15px] flex flex-row items-center justify-between max-md:py-2.5 max-md:border-b-0'>
 					<div className='flex flex-row items-center justify-start gap-[30px] text-lg text-[#828282] max-md:gap-4 max-md:hidden'>
 						<a
 							href='tel:1174'
@@ -34,7 +36,7 @@ const HeaderTop = () => {
 							Bo'sh ish o'rinlari
 						</a>
 					</div>
-					<div className='text-white flex flex-row items-center gap-1.5 text-[19px] font-bold'>
+					<div className='text-white flex-row items-center gap-1.5 text-[19px] font-bold hidden max-md:flex'>
 						<div className='w-8 h-8 cursor-pointer'>
 							<img src={coinIcon} alt='coin icon' />
 						</div>
@@ -59,8 +61,11 @@ const HeaderTop = () => {
 							</SelectContent>
 						</Select>
 					</div>
-					<div>
-						<Button className='flex flex-row items-center justify-center bg-white py-1.5 px-3 rounded-[100px] font-semibold text-base text-black'>
+					<div className='hidden max-md:block'>
+						<Button
+							className='flex flex-row items-center justify-center bg-white py-1.5 px-3 rounded-[100px] font-semibold text-base text-black'
+							onClick={() => navigate('/login')}
+						>
 							<UserRound />
 							Kirish
 						</Button>

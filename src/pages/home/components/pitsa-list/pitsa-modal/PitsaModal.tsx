@@ -56,16 +56,16 @@ const PitsaModal = () => {
 
 	return (
 		<Dialog open={pitsaModal} onOpenChange={pitsaModalClose}>
-			<DialogContent className='w-full sm:max-w-[900px] h-[600px] bg-white rounded-4xl overflow-hidden p-[25px] shadow-[0px_3px_15px_hsla(0,0%,85%,0.3)] grid items-stretch grid-cols-[400px_1fr] gap-[25px]'>
-				<div className='flex flex-col items-center justify-between min-h-[500px] h-full max-w-[400px] w-full'>
-					<div className='flex items-center w-[243px] h-[238px] mb-[16px] rounded-[64px] overflow-hidden'>
+			<DialogContent className='md:max-w-[900px] h-[600px] bg-white rounded-4xl overflow-hidden p-[25px] shadow-[0px_3px_15px_hsla(0,0%,85%,0.3)] grid items-stretch grid-cols-[400px_1fr] gap-[25px] max-lg:w-[600px] max-lg:px-2 max-lg:flex max-lg:flex-row max-md:max-w-[700px] max-sm:w-full max-sm:flex max-sm:flex-col max-sm:overflow-auto max-sm:h-[565px]'>
+				<div className='flex flex-col items-center justify-between min-h-[500px] h-full max-w-[400px] w-full max-sm:max-w-full'>
+					<div className='flex items-center w-[243px] h-[238px] mb-[16px] rounded-[64px] overflow-hidden max-lg:w-full max-sm:h-full'>
 						<img
 							src={pitsaItem?.image}
 							alt={`pitsa-img${pitsaItem?.id}`}
-							className='w-full h-full object-cover'
+							className='w-full h-full object-cover max-sm:object-contain'
 						/>
 					</div>
-					<div className='sticky top-0 z-50 bg-white pt-[15px]'>
+					<div className='bg-white pt-[15px] max-lg:w-full max-lg:px-1.5'>
 						<DialogTitle className='text-2xl mb-2.5 font-bold'>{pitsaItem?.title}</DialogTitle>
 						<DialogDescription className='mb-[15px] leading-[18px] text-[#828282]'>
 							{pitsaItem?.description}
@@ -101,6 +101,14 @@ const PitsaModal = () => {
 							Pitsa kattaligi:
 							<span className='font-bold'> Kickkina</span>
 						</h1>
+						<div className='w-full max-sm:block hidden mb-4'>
+							<Button
+								className='mt-5 w-full mt-20px max-w-none bg-[#006f4c] text-white border-none rounded-[60px] text-center font-bold text-base p-[25px] cursor-pointer  duration-200 ease-in-out hover:bg-[#009163]'
+								onClick={() => addCart(pitsaItem!)}
+							>
+								Savatga qo'shish
+							</Button>
+						</div>
 
 						<div className='w-full bg-white'>
 							<div className='flex flex-row items-center justify-between'>
@@ -111,12 +119,12 @@ const PitsaModal = () => {
 									{cards.length} / 10
 								</Badge>
 							</div>
-							<div className='h-max my-grid gap-2.5 max-w-full py-3 px-0.5 pb-24'>
+							<div className='h-max my-grid gap-2.5 max-w-full py-3 px-0.5 pb-24 max-md:pb-6'>
 								<ConstructorCardItem handleClick={handleClick} cards={cards} items={constructors} />
 							</div>
 						</div>
 					</div>
-					<div className='fixed bottom-5 right-0 w-[50%] z-20 px-6 bg-white'>
+					<div className='fixed bottom-5 right-0 w-[50%] z-20 px-6 bg-white max-sm:hidden'>
 						<div className='sticky p-0 z-[111111] flex flex-col items-start left-0 right-0 bottom-0 rounded-bl-[20px] rounded-br-[20px]'>
 							<div className='w-full'>
 								<Button

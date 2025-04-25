@@ -29,7 +29,7 @@ const ConstuctorPage = () => {
 	return (
 		<section>
 			<div className='container'>
-				<div className='grid grid-cols-[40%_60%] text-left'>
+				<div className='grid grid-cols-[40%_60%] text-left max-md:flex max-md:flex-col'>
 					<ConstructorInfo cards={cards} />
 					<ConstructorModifier items={constructors} handleClick={handleClick} cards={cards} />
 				</div>

@@ -9,7 +9,7 @@ const CartPage = () => {
 			{items.length === 0 ? (
 				<CartEmpty />
 			) : (
-				<div className='grid grid-cols-[65%_35%] py-10 px-[25px] gap-[22px]'>
+				<div className='grid grid-cols-[65%_35%] py-10 px-[25px] gap-[22px] max-lg:flex max-lg:flex-col max-lg:px-0'>
 					<div>
 						<CartItem items={items} />
 						<CartRecommended />
